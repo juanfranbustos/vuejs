@@ -41,3 +41,19 @@ npm run unit
 # run all tests
 npm test
 ```
+
+
+## Events
+
+``` bash
+
+# emit basic events
+v-on: click/submit/keyup = "enter your text"
+
+# emit my event
+this.$root.$emit('myEvent', 'enter your text');
+
+# listen my event
+this.$root.$on('myEvent', (text) => { // here you need to use the arrow function})
+
+```
