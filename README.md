@@ -1,8 +1,6 @@
 # Vue js
 
-> A Vue.js project
-
-##Instalation and new project
+## Instalation and new project
 
 ``` bash
 
@@ -16,7 +14,7 @@ vue init webpack my-project
 cd my-project
 npm install
 
-#Run serve
+# Run serve
 npm run dev
 
 
@@ -43,5 +41,3 @@ npm run unit
 # run all tests
 npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
