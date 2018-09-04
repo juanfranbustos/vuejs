@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1 v-show="esta">{{ msg }}</h1>
+    <h1 >{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -82,25 +82,66 @@
     </ul>
 
     <div id="example-1">
-      <button v-on:click="counter+=1" @keyup.enter="cambiarTitulo()">Add 1</button>
-      <p>The button above has been clicked {{ counter }} times.</p>
+      <button  v-on:click="cambiarEsta()">Hazlo desaparecer</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Segunda',
-  methods: {
-    cambiarTitulo: function () {
-      alert('lo has hecho bien!')
+
+import App from '../App';
+
+/*Vue.component('segunda', {
+  data: function () {
+    return {
+      msg: 'Esto no va ni de cara al aire',
+      esta: true,
+      counter: 0
     }
   },
+  methods: {
+    cambiarTitulo: function () {
+      this.msg = 'cambia'
+      alert(this.msg)
+      this.updateMessage();
+    },
+
+    updateMessage: function () {
+      this.msg = 'updated'
+      console.log(this.$el.textContent) // => 'not updated'
+      this.$nextTick(function () {
+        console.log(this.$el.textContent) // => 'updated'
+      })
+    }
+  }
+})*/
+
+export default {
+  name: 'Segunda',
   data () {
     return {
       msg: 'Hola2',
       esta: true,
       counter: 0
+    }
+  },
+  methods: {
+    cambiarTitulo: function () {
+      this.msg = 'cambia'
+      alert('lo has hecho bien!')
+      this.updateMessage();
+    },
+    updateMessage: function () {
+      this.msg = 'updated'
+      console.log(this.$el.textContent) // => 'not updated'
+      this.$nextTick(function () {
+        console.log(this.$el.textContent) // => 'updated'
+      })
+    },
+    cambiarEsta: function() {
+      this.esta = !this.esta
+      //Aqui se lanza el evento
+      this.$root.$emit('myEvent', this.esta);
     }
   }
 
@@ -109,6 +150,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.hello {
+  paddding: 10px;
+}
 h1, h2 {
   font-weight: normal;
 }
